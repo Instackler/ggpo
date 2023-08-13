@@ -30,8 +30,8 @@ extern "C" {
 #  define GGPO_API
 #endif
 
-#define GGPO_MAX_PLAYERS                  4
-#define GGPO_MAX_PREDICTION_FRAMES        8
+#define GGPO_MAX_PLAYERS                 64
+#define GGPO_MAX_PREDICTION_FRAMES        5
 #define GGPO_MAX_SPECTATORS              32
 
 #define GGPO_SPECTATOR_INPUT_INTERVAL     4
@@ -295,6 +295,13 @@ typedef struct GGPONetworkStats {
       int   remote_frames_behind;
    } timesync;
 } GGPONetworkStats;
+
+
+// Windows specific API to initialize windows sockets for network programming
+GGPO_API GGPOErrorCode __cdecl ggpo_initialize_winsock();
+
+// Windows specific API to deinitialize windows sockets for network programming
+GGPO_API GGPOErrorCode __cdecl ggpo_deinitialize_winsock();
 
 /*
  * ggpo_start_session --

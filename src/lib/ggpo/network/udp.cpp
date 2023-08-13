@@ -7,6 +7,7 @@
 
 #include "types.h"
 #include "udp.h"
+#include <iostream>
 
 SOCKET
 CreateSocket(uint16 bind_port, int retries)
